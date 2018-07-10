@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="http://www.regione.piemonte.it/ambiente/aria/rilev/ariaday/annali/" href="meteoweb.jnlp">
+	<information>
+		<title>ARPA Piemonte - Banca dati meteorologica</title>
+		<vendor>ARPA Piemonte</vendor>
+		<homepage href="http://www.arpa.piemonte.it/" />
+		<description>ARPA Piemonte - Banca dati meteorologica</description>
+	</information>
+	        <security>
+			<all-permissions/>
+		</security>
+		<resources>
+		        <j2se version="1.6+" />
+			<jar href="meteorologici/meteoweb.jar" />
+			<jar href="meteorologici/ilf-gpl.jar" />
+			<jar href="meteorologici/jfreechart-1.0.3.jar" />
+			<jar href="meteorologici/jcommon-1.0.8.jar" />
+		</resources>
+	<applet-desc name="MeteoWEB" main-class="it.csi.meteoweb.applet.MeteoClient" width="800" height="600">
+		<param name="idro" value="false" />
+	</applet-desc>
+</jnlp>
+
+
