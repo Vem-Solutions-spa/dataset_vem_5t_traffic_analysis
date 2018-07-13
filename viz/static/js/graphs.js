@@ -73,7 +73,8 @@ function refresh(){
 }
 
 function makeGraphs(error, recordsJson) {
-	data = recordsJson
+	data = recordsJson;
+	$("#autoplay-container").show();
 	reloadGraphs();
 }
 
@@ -119,7 +120,7 @@ function reloadGraphs()
 			rectangles[k]["bounds"]=bounds;
 			rectangles[k]["data"]={};
 			//console.log("created "+k);
-			rectangles[k]["rect"] = L.rectangle(rectangles[k].bounds, {color: "purple", weight: 0, fillOpacity:0.5}).addTo(map);
+			rectangles[k]["rect"] = L.rectangle(rectangles[k].bounds, {color: "purple", weight: 0, fillOpacity:0.8}).addTo(map);
 		}
 		var dkey = d["weekday"]+","+d["interval"];
 		if(typeof(rectangles[k]["data"][dkey])=="undefined")
@@ -138,7 +139,7 @@ function reloadGraphs()
 		}		
 		rectangles[k]["data"][dkey]["tl_true"] = d["tl_true"];
 		rectangles[k]["data"][dkey]["tl_predicted"] = d["tl_predicted"];
-		rectangles[k]["data"][dkey]["difference"] = d["difference"];
+		rectangles[k]["data"][dkey]["difference"] = Math.abs(d["tl_true"]-d["tl_predicted"])/d["tl_true"]*100; //d["difference"]/d["tl_true"]*100;
 
 		//console.log(rectangles[k]["data"][dkey]);
 	});
@@ -191,8 +192,8 @@ function reloadGraphs()
 	
 
 	timeChart
-		.width(800)
-		.height(140)
+		.width($("#time-chart").outerWidth()*1)
+		.height(500)
 		.margins({top: 10, right: 50, bottom: 20, left: 40})
 		.dimension(dateDim)
 		.group(numRecordsByDate)
@@ -270,6 +271,7 @@ function reloadGraphs()
 			return;
 		}
 	
+		/*
 		_.each(allDim.top(Infinity), function (d) {
 			if(true ||d["location"])
 			{
@@ -279,30 +281,30 @@ function reloadGraphs()
 				{					
 					//geoData.push([d["latitude"], d["longitude"], d["tl_true"]/100.0]);
 
-					/*
-					if(!haslayers)
-					{
+					// if(!haslayers)
+					// {
 
-						var hlon = 0.0022;
-						var hlat = 0.0011;
-						var pointA = new L.LatLng(d["latitude"]-hlat,d["longitude"]-hlon);
-						var pointB = new L.LatLng(d["latitude"]+hlat,d["longitude"]-hlon);
-						var pointC = new L.LatLng(d["latitude"]+hlat,d["longitude"]+hlon);
-						var pointD = new L.LatLng(d["latitude"]-hlat,d["longitude"]+hlon);
-						var pointList = [pointA, pointB, pointC, pointD];										
+					// 	var hlon = 0.0022;
+					// 	var hlat = 0.0011;
+					// 	var pointA = new L.LatLng(d["latitude"]-hlat,d["longitude"]-hlon);
+					// 	var pointB = new L.LatLng(d["latitude"]+hlat,d["longitude"]-hlon);
+					// 	var pointC = new L.LatLng(d["latitude"]+hlat,d["longitude"]+hlon);
+					// 	var pointD = new L.LatLng(d["latitude"]-hlat,d["longitude"]+hlon);
+					// 	var pointList = [pointA, pointB, pointC, pointD];										
 
-						var bounds = [[d["latitude"]-hlat,d["longitude"]-hlon], [d["latitude"]+hlat,d["longitude"]+hlon]];
-						var key = rectKey(d["latitude"],d["longitude"]);
-					}
-					else
-					{
-						console.log("layers present");
-					}
-					*/
+					// 	var bounds = [[d["latitude"]-hlat,d["longitude"]-hlon], [d["latitude"]+hlat,d["longitude"]+hlon]];
+					// 	var key = rectKey(d["latitude"],d["longitude"]);
+					// }
+					// else
+					// {
+					// 	console.log("layers present");
+					// }
+
 				}
 			}			
 		  });
-		  		
+		 
+		*/
 		//console.log(geoData);
 
 		if(layers["tl_true"])
@@ -321,7 +323,7 @@ function reloadGraphs()
 		}).addTo(map);
 		*/
 		var maxvalue = 0;
-		var minvalue = 100000;
+		var minvalue = Infinity;
 
 		var avgsum=0;
 		var avgcount=0;
@@ -355,7 +357,7 @@ function reloadGraphs()
 
 		var colors = d3.scale.linear()
 			.domain([0,maxvalue/2,maxvalue])
-			.range(["#00c000","#ffff00","#ff0000"]);		
+			.range(["#00c000","#ffff00","#ff4040"]);		
 
 		
 
@@ -375,6 +377,38 @@ function reloadGraphs()
 				}
 			}
 		}	
+
+		for(var b=0;b<10;b++)
+		{
+			var title = "---";
+			var value;
+			switch(currentcharttype)
+			{
+				case "tl_true":
+				case "tl_predicted":
+					title="Relative traffic level (%)";
+					value1=maxvalue/10*(b+1);
+					value=100/10*(b+1);
+					value = parseInt(value*100)/100.0;
+
+					$("#legend-"+b).html(value);
+					$("#legend-"+b).css("background-color",colors(value1));
+					$("#legend-"+b).css("text-align","center");
+				break;
+
+				case "difference":
+					title="Difference (%)";
+					value=maxvalue/10*(b+1);
+					value = parseInt(value*100)/100.0;
+
+					$("#legend-"+b).html(value);
+					$("#legend-"+b).css("background-color",colors(value));
+					$("#legend-"+b).css("text-align","center");
+				break;
+			}			
+			$("#legend-title").html(title);
+
+		}
 		
 
 		//console.log(layers);

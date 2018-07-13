@@ -23,12 +23,14 @@ n_samples = 3000
 
 testv = 1
 
-client = MongoClient('mongodb://localhost:27017/')
-db = client.vem
-coll = db.june2017
+#client = MongoClient('mongodb://localhost:27017/')
+#db = client.vem
+#coll = db.june2017
 
 alldata = False
 wehavedata = False
+
+
 
 def get_age_segment(age):
     if age <= 22:
@@ -108,7 +110,7 @@ def get_data_000():
 
 @app.route("/data_old_001")
 def byday():
-    global coll
+    #global coll
     day = request.args.get('date')
     if(not day):
         day="2017-06-01"
@@ -147,7 +149,7 @@ def byday():
 
 @app.route("/data")
 def data_002():
-    global coll
+   # global coll
     global alldata
     global wehavedata
 
@@ -177,14 +179,14 @@ def data_002():
 
     return Response(df.to_json(orient='records'),mimetype='application/json')
 
-    df =  pd.DataFrame.from_records(coll.find({"recording_date":{ "$regex" : "^"+day }}).limit(10000))
-    df = df.drop(columns=["_id"])
-    df = df.rename(index=str, columns={"lat": "latitude", "lon": "longitude","recording_date":"timestamp"})
+    #df =  pd.DataFrame.from_records(coll.find({"recording_date":{ "$regex" : "^"+day }}).limit(10000))
+    #df = df.drop(columns=["_id"])
+    #df = df.rename(index=str, columns={"lat": "latitude", "lon": "longitude","recording_date":"timestamp"})
 
-    df['location'] = df.apply(lambda row: get_location(row['longitude'], row['latitude'], provinces_json), axis=1)
+    #df['location'] = df.apply(lambda row: get_location(row['longitude'], row['latitude'], provinces_json), axis=1)
 
 
-    return Response(df.to_json(orient='records'),mimetype='application/json')
+    #return Response(df.to_json(orient='records'),mimetype='application/json')
 
 
 def mockData1():

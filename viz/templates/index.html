@@ -29,114 +29,144 @@
 
           <div class="row">
           <!-- Map -->  
-          <div class="col-sm-6 map-container"> 
+          <div class="col-sm-5 map-container"> 
               <div class="chart-wrapper">
                 <div class="chart-title">
                   Map
                 </div>
                 <div class="chart-stage">
-                  <div id="map" style="width: 800px; height: 500px"></div>
+                  <div id="map" style="width: 100%; height: 520px"></div>
                 </div>
               </div>
             </div>
             <!-- Map -->  
             
             <!-- Map -->  
-            <div class="col-sm-6"> 
+            <div class="col-sm-2"> 
               <div class="chart-wrapper">
                 <div class="chart-title">
-                  Map
+                  Legend
                 </div>
                 <div class="chart-stage">
-                  <div id="time-chart" style="float:none"></div>
+                  <div style="height:520px;font-size:18px;font-weight:bold">
+                    <div id="legend-title">---</div>
+                    <div id="legend-9" style="height:50px;"></div>
+                    <div id="legend-8" style="height:50px;"></div>
+                    <div id="legend-7" style="height:50px;"></div>
+                    <div id="legend-6" style="height:50px;"></div>
+                    <div id="legend-5" style="height:50px;"></div>
+                    <div id="legend-4" style="height:50px;"></div>
+                    <div id="legend-3" style="height:50px;"></div>
+                    <div id="legend-2" style="height:50px;"></div>
+                    <div id="legend-1" style="height:50px;"></div>
+                    <div id="legend-0" style="height:50px;"></div>
+                  </div>
                 </div>
               </div>
             </div>
             <!-- Map -->  
+            
+
+            <!--
+            <div class="col-sm-5"> 
+              <div class="chart-wrapper">
+                <div class="chart-title">
+                  TImeline
+                </div>
+                <div class="chart-stage">
+                  <div id="time-chart" style="float:none;height:520px;width:100%"></div>
+                </div>
+              </div>
+            </div>
+            -->  
+
+            <div class="col-sm-5">
+                <div class="chart-wrapper">
+                  <div class="chart-title">
+                    Control panel
+                  </div>
+                  <div class="chart-stage">                
+                    <div style="display:block;float:none;;padding:10px;float:left">
+                      <div class="btn-group toolbar-1" role="toolbar-1" aria-label="" data-toggle="buttons-radio">
+                        <button type="radio" noautofocus="true" class="btn btn-default action-weekday active" data-weekday="_W">Mon-Fri</button>
+                        <button type="radio" class="btn btn-default action-weekday" data-weekday="ST">Sat</button>
+                        <button type="radio" class="btn btn-default action-weekday" data-weekday="SN">Sun</button>
+                      </div>                  
+                    </div>
+                    <div style="display:block;padding:10px;float:right;">
+                      <div class="btn-group toolbar-2" role="toolbar-2" aria-label="" data-toggle="buttons-radio">
+                        <button type="radio" noautofocus="true" class="btn btn-default action-charttype active" data-charttype="tl_true">Actual</button>
+                        <button type="radio" class="btn btn-default action-charttype" data-charttype="tl_predicted">Predicted</button>
+                        <button type="radio" class="btn btn-default action-charttype" data-charttype="difference">Difference</button>
+                      </div>                  
+                    </div>
+                    <div style="display:block;padding:10px;float:left;">
+                      <div class="btn-group toolbar-3" role="toolbar-3" aria-label="" data-toggle="buttons">
+                        <!--
+                        <button type="radio" class="btn btn-default action-interval" data-interval="1">00:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="2">00:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="3">01:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="4">01:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="5">02:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="6">02:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="7">03:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="8">03:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="9">04:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="10">04:30</button>-->
+                        <button type="radio" noautofocus="true" class="btn btn-default action-interval active" data-interval="11">05:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="12">05:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="13">06:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="14">06:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="15">07:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="16">07:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="17">08:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="18">08:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="19">09:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="20">09:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="21">10:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="22">10:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="23">11:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="24">11:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="25">12:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="26">12:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="27">13:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="28">13:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="29">14:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="30">14:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="31">15:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="32">15:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="33">16:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="34">16:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="35">17:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="36">17:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="37">18:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="38">18:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="39">19:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="40">19:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="41">20:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="42">20:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="43">21:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="44">21:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="45">22:00</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="46">22:30</button>
+                        <button type="radio" class="btn btn-default action-interval" data-interval="47">23:00</button>
+                        <!--<button type="radio" class="btn btn-default action-interval" data-interval="48">23:30</button>-->
+                      </div>           
+                      <div id="autoplay-container" style="display:none;float:right;">
+                        <input type="checkbox" id="autoplay">Autoplay
+                      </div>       
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+
           </div>
           
         </div>
         <div class="row">
 
 
-          <!-- Time Chart --> 
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Control panel
-              </div>
-              <div class="chart-stage">                
-                <div style="display:block;float:none;">
-                  <div class="btn-group toolbar-1" role="toolbar-1" aria-label="" data-toggle="buttons-radio">
-                    <button type="radio" noautofocus="true" class="btn btn-default action-weekday active" data-weekday="_W">Mon-Fri</button>
-                    <button type="radio" class="btn btn-default action-weekday" data-weekday="ST">Sat</button>
-                    <button type="radio" class="btn btn-default action-weekday" data-weekday="SN">Sun</button>
-                  </div>                  
-                </div>
-                <div style="display:block">
-                  <div class="btn-group toolbar-2" role="toolbar-2" aria-label="" data-toggle="buttons-radio">
-                    <button type="radio" noautofocus="true" class="btn btn-default action-charttype active" data-charttype="tl_true">Measured</button>
-                    <button type="radio" class="btn btn-default action-charttype" data-charttype="tl_predicted">Predicted</button>
-                    <button type="radio" class="btn btn-default action-charttype" data-charttype="difference">Difference</button>
-                  </div>                  
-                </div>
-                <div style="display:block">
-                  <div class="btn-group toolbar-3" role="toolbar-3" aria-label="" data-toggle="buttons">
-                    <!--
-                    <button type="radio" class="btn btn-default action-interval" data-interval="1">00:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="2">00:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="3">01:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="4">01:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="5">02:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="6">02:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="7">03:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="8">03:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="9">04:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="10">04:30</button>-->
-                    <button type="radio" noautofocus="true" class="btn btn-default action-interval active" data-interval="11">05:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="12">05:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="13">06:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="14">06:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="15">07:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="16">07:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="17">08:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="18">08:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="19">09:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="20">09:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="21">10:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="22">10:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="23">11:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="24">11:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="25">12:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="26">12:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="27">13:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="28">13:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="29">14:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="30">14:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="31">15:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="32">15:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="33">16:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="34">16:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="35">17:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="36">17:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="37">18:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="38">18:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="39">19:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="40">19:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="41">20:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="42">20:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="43">21:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="44">21:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="45">22:00</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="46">22:30</button>
-                    <button type="radio" class="btn btn-default action-interval" data-interval="47">23:00</button>
-                    <!--<button type="radio" class="btn btn-default action-interval" data-interval="48">23:30</button>-->
-                  </div>                  
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Time Chart --> 
 
           <!-- Brand -->
           <!--
@@ -268,7 +298,7 @@ $(function(){
       $(this).addClass("sel");
       $(".sel").addClass("active");
       currentweekday = $(this).data("weekday");
-      //refresh();
+      refresh();
     });
     
 
@@ -295,16 +325,23 @@ $(function(){
   });
 
 
+
   setInterval(function(){
-    autoplay++;
-    if(autoplay>47){autoplay=11};
-    var button = $("[data-interval="+autoplay+"]");
-    button.click();
-    $(".toolbar-3").find("button").removeClass("sel").removeClass("active");
-    button.addClass("sel");
-    $(".sel").addClass("active");
-    console.log("autoplay "+autoplay);
-  },5000);
+    if($("#autoplay").prop("checked"))
+    {
+      //autoplay++;
+      currentinterval++;
+      if(currentinterval>47){currentinterval=11};
+      var button = $("[data-interval="+currentinterval+"]");
+      button.click();
+      $(".toolbar-3").find("button").removeClass("sel").removeClass("active");
+      button.addClass("sel");
+      $(".sel").addClass("active");
+      console.log("autoplay "+currentinterval);
+    }
+  },3000);
+
+
 
 });
 </script>
